@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script>
+		function myFunction() {
+			setInterval(function(){
+				var start = new Date("November 21, 2016 8:00:00");
+				var t = Date.parse(new Date()) - start;
+				var seconds = Math.floor( (t/1000) % 60 );
+				var minutes = Math.floor( (t/1000/60) % 60 );
+				var hours = Math.floor( (t/(1000*60*60)) % 24 );
+				var days = Math.floor( t/(1000*60*60*24) );
+				var result = {
+					'total': t,
+					'days': days,
+					'hours': hours,
+					'minutes': minutes,
+					'seconds': seconds
+				};
+				document.getElementById("result").innerHTML = "Last online: "+result.days+" Days "+result.hours+" Hours "+result.minutes+" Minutes and "+result.seconds+" Seconds";
+			}, 1000);
+		}
+	</script>
+
+</head>
+<body onload="myFunction()">
+	<img src="nuno.jpg" alt="Smiley face">
+	<span style=" position: absolute; top: 24px; left: 154px; font-size: 13px;" id="result"> </span> 
+
+</body>
+</html>
